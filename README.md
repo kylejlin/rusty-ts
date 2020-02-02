@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.com/kylejlin/rusty-ts.svg?branch=master)](https://travis-ci.com/kylejlin/rusty-ts)
 [![Coverage Status](https://coveralls.io/repos/github/kylejlin/rusty-ts/badge.svg?branch=master)](https://coveralls.io/github/kylejlin/rusty-ts?branch=master)
-[![npm version](https://badge.fury.io/js/%40kylejlin%2Frusty-ts.svg)](https://www.npmjs.com/package/@kylejlin/rusty-ts)
-[![Downloads](https://img.shields.io/npm/dm/%40kylejlin%2Frusty-ts.svg)](https://www.npmjs.com/package/@kylejlin/rusty-ts)
+[![npm version](https://badge.fury.io/js/rusty-ts.svg)](https://www.npmjs.com/package/rusty-ts)
+[![Downloads](https://img.shields.io/npm/dm/rusty-ts.svg)](https://www.npmjs.com/package/rusty-ts)
 
 Rust-inspired `Option` and `Result` types for TypeScript.
 
