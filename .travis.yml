@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - 11.7
+script:
+  - npm run build
+  - npm test
+  - npm run coveralls
+branches:
+  only:
+    - master

@@ -1,0 +1,218 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>rusty-ts</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">rusty-ts</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>rusty-ts</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#rusty-ts" id="rusty-ts" style="color: inherit; text-decoration: none;">
+					<h1>rusty-ts</h1>
+				</a>
+				<p><a href="https://travis-ci.com/kylejlin/rusty-ts"><img src="https://travis-ci.com/kylejlin/rusty-ts.svg?branch=master" alt="Build Status"></a>
+					<a href="https://coveralls.io/github/kylejlin/rusty-ts?branch=master"><img src="https://coveralls.io/repos/github/kylejlin/rusty-ts/badge.svg?branch=master" alt="Coverage Status"></a>
+					<a href="https://www.npmjs.com/package/@kylejlin/rusty-ts"><img src="https://badge.fury.io/js/%40kylejlin%2Frusty-ts.svg" alt="npm version"></a>
+				<a href="https://www.npmjs.com/package/@kylejlin/rusty-ts"><img src="https://img.shields.io/npm/dm/%40kylejlin%2Frusty-ts.svg" alt="Downloads"></a></p>
+				<p>Rust-inspired <code>Option</code> and <code>Result</code> types for TypeScript.</p>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<pre><code class="language-bash">npm install --save @kylejlin/result</code></pre>
+				<a href="#option" id="option" style="color: inherit; text-decoration: none;">
+					<h3>Option</h3>
+				</a>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Option, option } <span class="hljs-keyword">from</span> <span class="hljs-string">"@kylejlin/option"</span>;
+
+<span class="hljs-keyword">const</span> a = option.some(<span class="hljs-string">"foo"</span>);
+<span class="hljs-keyword">const</span> b = a.map(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.toUpperCase());
+
+<span class="hljs-keyword">const</span> c = option.some(<span class="hljs-number">3</span>);
+<span class="hljs-keyword">const</span> d = a.andThen(<span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> c.map(<span class="hljs-function"><span class="hljs-params">c</span> =&gt;</span> a.repeat(c)));
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">opt: Option&lt;<span class="hljs-built_in">string</span>&gt;</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(opt.unwrap());
+}
+
+<span class="hljs-comment">// Logs "FOOFOOFOO"</span>
+f(d);</code></pre>
+				<a href="#result" id="result" style="color: inherit; text-decoration: none;">
+					<h3>Result</h3>
+				</a>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Result, result } <span class="hljs-keyword">from</span> <span class="hljs-string">"rusty-ts"</span>;
+
+<span class="hljs-keyword">const</span> a = result.ok(<span class="hljs-string">"foo"</span>);
+<span class="hljs-keyword">const</span> b = a.map(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.toUpperCase());
+
+<span class="hljs-keyword">const</span> c = result.err(<span class="hljs-number">3</span>);
+<span class="hljs-keyword">const</span> d = c.orElse(<span class="hljs-function"><span class="hljs-params">cError</span> =&gt;</span> b.map(<span class="hljs-function"><span class="hljs-params">bVal</span> =&gt;</span> bVal.repeat(cError)));
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">opt: Result&lt;<span class="hljs-built_in">string</span>&gt;</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(opt.unwrap());
+}
+
+<span class="hljs-comment">// Logs "FOOFOOFOO"</span>
+f(d);</code></pre>
+				<a href="#why-codeoptioncode-emandem-codeoptioncode-or-coderesultcode-and-coderesultcode" id="why-codeoptioncode-emandem-codeoptioncode-or-coderesultcode-and-coderesultcode" style="color: inherit; text-decoration: none;">
+					<h3>Why <code>Option</code> <em>and</em> <code>option</code> (or <code>Result</code> and <code>result</code>)?</h3>
+				</a>
+				<p><code>Option</code> is just an interface—any <code>Option</code>-compatible code you write will be compatible with any implementation of <code>Option</code>.
+				This gives you the flexibility to implement <code>Option</code> however you like.</p>
+				<p>However, you probably don&#39;t want to write your own implementation, so we provide you with one out-of-the-box.
+					The <code>option</code> object provides a namespace that groups the factories
+					of the default implementation.
+				To instantiate an Some or None variant, simply call <code>option.some()</code> or <code>option.none()</code>, respectively.</p>
+				<p>The same goes for <code>Result</code> (the interface), and <code>result</code> (the namespace containing the factory functions).</p>
+				<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
+					<h2>API Docs</h2>
+				</a>
+				<p>Docs can be found <a href="https://kylejlin.github.io/rusty-ts/">here</a>.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_option_.html">&quot;<wbr>Option&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_result_.html">&quot;<wbr>Result&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_index_.html">&quot;index&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
