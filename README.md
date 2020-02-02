@@ -10,13 +10,13 @@ Rust-inspired `Option` and `Result` types for TypeScript.
 ## Usage
 
 ```bash
-npm install --save @kylejlin/result
+npm install --save rusty-ts
 ```
 
 ### Option
 
 ```ts
-import { Option, option } from "@kylejlin/option";
+import { Option, option } from "rusty-ts";
 
 const a = option.some("foo");
 const b = a.map(x => x.toUpperCase());
