@@ -1,6 +1,6 @@
 {
   "name": "rusty-ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Inspired by Rust's Option and Result.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "prepublishOnly": "npm run build && npm run test && npm run doc",
-    "build": "tsc",
+    "build": "rm -rf dist && tsc --project tsconfig.build.json",
     "test": "jest",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "doc": "typedoc --exclude './src/private/*.ts' --excludeNotExported --out docs src && cd docs && echo \"\" > .nojekyll"
