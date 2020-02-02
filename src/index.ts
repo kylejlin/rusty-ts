@@ -37,6 +37,18 @@ export const option = {
    * @param options A tuple or array of options.
    */
   all: optionDotAll,
+
+  /**
+   * Accepts one argument `t`, returning `none` if the `t`
+   * is `null` or `undefined` , otherwise returning `some(t)`.
+   */
+  fromVoidable<T>(voidable: T | undefined | null): Option<T> {
+    if (voidable === undefined || voidable === null) {
+      return OptionImpl.none();
+    } else {
+      return OptionImpl.some(voidable);
+    }
+  },
 };
 
 /**
