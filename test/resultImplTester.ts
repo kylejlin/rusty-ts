@@ -192,6 +192,11 @@ export function testResultImpl(result: ResultFactory) {
     expect(res.safeUnwrap()).toBe("foo");
   });
 
+  test("Result.prototype.safeUnwrapErr", () => {
+    const res: Result<never, string> = result.err("bar");
+    expect(res.safeUnwrapErr()).toBe("bar");
+  });
+
   test("Result.prototype.unwrapErr() returns wrapped value if `this` is err", () => {
     expect(result.err("bar").unwrapErr()).toBe("bar");
   });

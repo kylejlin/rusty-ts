@@ -32,9 +32,9 @@ export default interface Result<T, E> {
    */
   err(): Option<E>;
 
-  isOk(): boolean;
+  isOk(): this is Result<T, never>;
 
-  isErr(): boolean;
+  isErr(): this is Result<never, E>;
 
   /**
    * Applies a function to the inner value if `this` is `ok`.
@@ -79,10 +79,17 @@ export default interface Result<T, E> {
 
   /**
    * Same as `unwrap()` except this method will never
-   * throw, because `this` cannot be `err` (because
+   * throw, since `this` cannot be `err` (because
    * the error type is `never`).
    */
   safeUnwrap(this: Result<any, never>): T;
+
+  /**
+   * Same as `unwrapErr()` except this method will never
+   * throw, since `this` cannot be `ok` (because
+   * the ok type is `never`).
+   */
+  safeUnwrapErr(this: Result<never, any>): E;
 
   /**
    * Returns the inner value if `this` is `err`,

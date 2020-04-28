@@ -36,11 +36,11 @@ export default class ResultImpl<T, E> implements Result<T, E> {
     });
   }
 
-  isOk(): boolean {
+  isOk(): this is Result<T, never> {
     return !this.isErr_;
   }
 
-  isErr(): boolean {
+  isErr(): this is Result<never, E> {
     return this.isErr_;
   }
 
@@ -71,6 +71,10 @@ export default class ResultImpl<T, E> implements Result<T, E> {
   }
 
   safeUnwrap(this: Result<any, never>): T {
+    return (this as any).value;
+  }
+
+  safeUnwrapErr(this: Result<never, any>): E {
     return (this as any).value;
   }
 
