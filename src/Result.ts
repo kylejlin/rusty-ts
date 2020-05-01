@@ -101,13 +101,13 @@ export default interface Result<T, E> {
    * Returns the inner value if `this` is `ok`,
    * otherwise throws the inner value.
    */
-  unwrapOrThrowErr(this: Result<any, Error>): T;
+  unwrapOrThrowErr(): T;
 
   /**
    * Returns the inner value if `this` is `err`,
    * otherwise throws the inner value.
    */
-  unwrapErrOrThrowOk(this: Result<Error, any>): E;
+  unwrapErrOrThrowOk(): E;
 
   /**
    * Returns the inner value if `this` is `ok`,

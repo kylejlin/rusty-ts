@@ -82,7 +82,7 @@ export default class ResultImpl<T, E> implements Result<T, E> {
     return this.expectErr("Tried to call unwrapErr() on result.ok()");
   }
 
-  unwrapOrThrowErr(this: Result<any, Error>): T {
+  unwrapOrThrowErr(): T {
     return this.match({
       ok: t => t,
       err: e => {
@@ -91,7 +91,7 @@ export default class ResultImpl<T, E> implements Result<T, E> {
     });
   }
 
-  unwrapErrOrThrowOk(this: Result<Error, any>): E {
+  unwrapErrOrThrowOk(): E {
     return this.match({
       ok: t => {
         throw t;
