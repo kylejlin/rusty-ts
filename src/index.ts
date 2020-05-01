@@ -30,9 +30,9 @@ export const option = {
    * analagous to how `Promise.all()` transposes
    * an array of promises into promised array.
    *
-   * If every option is `some`, this method returns `Option.some(arr)`
+   * If every option is `some`, this method returns `option.some(arr)`
    * where `arr` is an array of the unwrapped `Option`s.
-   * Otherwise, this method returns `Option.none()`.
+   * Otherwise, this method returns `option.none()`.
    *
    * @param options A tuple or array of options.
    */
@@ -56,9 +56,9 @@ export const option = {
  * analagous to how `Promise.all()` transposes
  * an array of promises into promised array.
  *
- * If every option is `some`, this method returns `Option.some(arr)`
+ * If every option is `some`, this method returns `option.some(arr)`
  * where `arr` is an array of the unwrapped `Option`s.
- * Otherwise, this method returns `Option.none()`.
+ * Otherwise, this method returns `option.none()`.
  *
  * @param options A tuple or array of options.
  */
@@ -142,7 +142,7 @@ export const result = {
    * an array of promises into promised array.
    *
    * If every result is `ok`, this method returns `result.ok(arr)`
-   * where `arr` is an array of the unwrapped `results`s.
+   * where `arr` is an array of the unwrapped `Result`s.
    * Otherwise, this method returns `result.err(e)` where `e` is
    * the error value of the first result in the array that was an `err`.
    *
@@ -151,6 +151,18 @@ export const result = {
   all: resultDotAll,
 };
 
+/**
+ * Transposes an array of results into an result with an array,
+ * analagous to how `Promise.all()` transposes
+ * an array of promises into promised array.
+ *
+ * If every result is `ok`, this method returns `result.ok(arr)`
+ * where `arr` is an array of the unwrapped `Result`s.
+ * Otherwise, this method returns `result.err(e)` where `e` is
+ * the error value of the first result in the array that was an `err`.
+ *
+ * @param results A tuple or array of results.
+ */
 export function resultDotAll<T1, E1>(
   results: [Result<T1, E1>],
 ): Result<[T1], E1>;
