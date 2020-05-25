@@ -141,4 +141,18 @@ export default class OptionImpl<T> implements Option<T> {
         }),
     });
   }
+
+  equalsSome(other: T): boolean {
+    return this.match({
+      none: () => false,
+      some: v => v === other,
+    });
+  }
+
+  someSatisfies(predicate: (val: T) => boolean): boolean {
+    return this.match({
+      none: () => false,
+      some: predicate,
+    });
+  }
 }

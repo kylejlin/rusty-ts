@@ -165,4 +165,28 @@ export default interface Option<T> {
    * `some(ok(t))` and `some(err(e))` will be mapped to `ok(some(t))` and `err(e)`, respectively.
    */
   transpose<U, E>(this: Option<Result<U, E>>): Result<Option<U>, E>;
+
+  /**
+   * Returns false if `this` is `none`,
+   * otherwise returns whether the value that `this`
+   * wraps equals the provided value (equality is
+   * determined using `===`).
+   *
+   * In other words, this method returns true if and only if
+   * `this` is `some(v)` and `v === other`.
+   */
+  equalsSome(other: T): boolean;
+
+  /**
+   * Returns false if `this` is `none`,
+   * otherwise returns whether the value that `this`
+   * wraps satisfies the provided predicate.
+   *
+   * In other words, this method returns true if and only if
+   * `this` is `some(v)` and `predicate(v)` is `true`.
+   *
+   * @param predicate The callback to call if `this`
+   * is `some`.
+   */
+  someSatisfies(predicate: (val: T) => boolean): boolean;
 }

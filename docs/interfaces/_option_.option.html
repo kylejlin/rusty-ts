@@ -100,6 +100,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter"><a href="_option_.option.html#and" class="tsd-kind-icon">and</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter"><a href="_option_.option.html#andthen" class="tsd-kind-icon">and<wbr>Then</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_option_.option.html#array" class="tsd-kind-icon">array</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_option_.option.html#equalssome" class="tsd-kind-icon">equals<wbr>Some</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_option_.option.html#expect" class="tsd-kind-icon">expect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_option_.option.html#filter" class="tsd-kind-icon">filter</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter"><a href="_option_.option.html#flatten" class="tsd-kind-icon">flatten</a></li>
@@ -111,6 +112,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter"><a href="_option_.option.html#match" class="tsd-kind-icon">match</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter"><a href="_option_.option.html#or" class="tsd-kind-icon">or</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter"><a href="_option_.option.html#orelse" class="tsd-kind-icon">or<wbr>Else</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_option_.option.html#somesatisfies" class="tsd-kind-icon">some<wbr>Satisfies</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter"><a href="_option_.option.html#transpose" class="tsd-kind-icon">transpose</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_option_.option.html#unwrap" class="tsd-kind-icon">unwrap</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter"><a href="_option_.option.html#unwrapor" class="tsd-kind-icon">unwrap<wbr>Or</a></li>
@@ -133,7 +135,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L100">Option.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L100">Option.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -171,7 +173,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L112">Option.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L112">Option.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -230,7 +232,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L153">Option.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L153">Option.ts:153</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -246,6 +248,39 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="equalssome" class="tsd-anchor"></a>
+					<h3>equals<wbr>Some</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">equals<wbr>Some<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L178">Option.ts:178</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns false if <code>this</code> is <code>none</code>,
+										otherwise returns whether the value that <code>this</code>
+										wraps equals the provided value (equality is
+									determined using <code>===</code>).</p>
+								</div>
+								<p>In other words, this method returns true if and only if
+								<code>this</code> is <code>some(v)</code> and <code>v === other</code>.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <span class="tsd-signature-type">T</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="expect" class="tsd-anchor"></a>
 					<h3>expect</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -257,7 +292,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L64">Option.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L64">Option.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L71">Option.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L71">Option.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -303,7 +338,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L73">Option.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L73">Option.ts:73</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -326,7 +361,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L138">Option.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L138">Option.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -378,7 +413,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L144">Option.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L144">Option.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -413,7 +448,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L50">Option.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L50">Option.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -456,7 +491,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L43">Option.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L43">Option.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -509,7 +544,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L20">Option.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L20">Option.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -526,7 +561,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L22">Option.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L22">Option.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -543,7 +578,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L31">Option.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L31">Option.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -600,7 +635,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L18">Option.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L18">Option.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -683,7 +718,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L120">Option.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L120">Option.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -721,7 +756,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L128">Option.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L128">Option.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -761,6 +796,60 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="somesatisfies" class="tsd-anchor"></a>
+					<h3>some<wbr>Satisfies</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">some<wbr>Satisfies<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L191">Option.ts:191</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns false if <code>this</code> is <code>none</code>,
+										otherwise returns whether the value that <code>this</code>
+									wraps satisfies the provided predicate.</p>
+								</div>
+								<p>In other words, this method returns true if and only if
+								<code>this</code> is <code>some(v)</code> and <code>predicate(v)</code> is <code>true</code>.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>predicate: <span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback to call if <code>this</code>
+										is <code>some</code>.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>val: <span class="tsd-signature-type">T</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
 					<a name="transpose" class="tsd-anchor"></a>
 					<h3>transpose</h3>
@@ -771,7 +860,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L167">Option.ts:167</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L167">Option.ts:167</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -810,7 +899,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L56">Option.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L56">Option.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -833,7 +922,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L81">Option.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L81">Option.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -871,7 +960,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L92">Option.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L92">Option.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -923,7 +1012,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/d806d1a/src/Option.ts#L159">Option.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/kylejlin/rusty-ts/blob/bb00fe0/src/Option.ts#L159">Option.ts:159</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -984,6 +1073,9 @@
 								<a href="_option_.option.html#array" class="tsd-kind-icon">array</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_option_.option.html#equalssome" class="tsd-kind-icon">equals<wbr>Some</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="_option_.option.html#expect" class="tsd-kind-icon">expect</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
@@ -1015,6 +1107,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
 								<a href="_option_.option.html#orelse" class="tsd-kind-icon">or<wbr>Else</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_option_.option.html#somesatisfies" class="tsd-kind-icon">some<wbr>Satisfies</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
 								<a href="_option_.option.html#transpose" class="tsd-kind-icon">transpose</a>

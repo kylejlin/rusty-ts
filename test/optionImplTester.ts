@@ -274,4 +274,24 @@ export function testOptionImpl(option: OptionFactory) {
       result.err("bar"),
     );
   });
+
+  test("Option.prototype.equalsSome()", () => {
+    expect(option.some(42).equalsSome(42)).toBe(true);
+    expect(option.some("foo").equalsSome("foo")).toBe(true);
+
+    expect(option.some(42).equalsSome(5)).toBe(false);
+    expect(option.some("foo").equalsSome("bar")).toBe(false);
+    expect(option.some<string | number>("42").equalsSome(42)).toBe(false);
+    expect(option.some({}).equalsSome({})).toBe(false);
+
+    expect(option.none<number>().equalsSome(42)).toBe(false);
+  });
+
+  test("Option.prototype.someSatisfies()", () => {
+    expect(option.some("foo").someSatisfies(v => v.length === 3)).toBe(true);
+
+    expect(option.some("foo").someSatisfies(v => v.length === 500)).toBe(false);
+
+    expect(option.none().someSatisfies(() => true)).toBe(false);
+  });
 }
